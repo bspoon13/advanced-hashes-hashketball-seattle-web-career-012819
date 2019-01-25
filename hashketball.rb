@@ -121,8 +121,6 @@ game_stats
 
 end
 
-
-
 def shoe_size(player_name)
 return_value = nil
   game_hash.each do |location, team_data|
@@ -132,6 +130,48 @@ return_value = nil
           if name == player_name
             player_stats.each do |category, value|
               if category == :shoe
+                return_value = value
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+return_value
+end
+
+def team_colors(name_of_team)
+  game_hash.each do |location, team_data|
+    team_data.each do |attribute, data|
+      if data == name_of_team
+        team_colors = name_of_team
+      elsif team_colors == name_of_team && attribute == colors
+        team_colors = data
+        binding.pry
+      end
+    end
+  end
+team_colors
+end
+
+<<<<<<< HEAD
+def shoe_size(player_name)
+=======
+def num_points_scored(player_name)
+>>>>>>> 11e4336bf115a7e40b6a80e9c32a4441eba9c3dd
+return_value = nil
+  game_hash.each do |location, team_data|
+    team_data.each do |attribute, data|
+      if attribute == :players
+        data.each do |name, player_stats|
+          if name == player_name
+            player_stats.each do |category, value|
+<<<<<<< HEAD
+              if category == :shoe
+=======
+              if category == :points
+>>>>>>> 11e4336bf115a7e40b6a80e9c32a4441eba9c3dd
                 return_value = value
               end
             end
@@ -155,6 +195,7 @@ end
 #team_colors
 #end
 
+<<<<<<< HEAD
 def team_colors(name_of_team)
 colors = nil
   game_hash.each do |location, team_data|
@@ -267,6 +308,16 @@ def good_practices
         #are you ABSOLUTELY SURE what 'attribute' and 'team data' are? use binding.pry to find out!
         binding.pry
 
+=======
+def good_practices
+  game_hash.each do |location, team_data|
+    #are you ABSOLUTELY SURE what 'location' and 'team data' are? use binding.pry to find out!
+    binding.pry
+      team_data.each do |attribute, data|
+        #are you ABSOLUTELY SURE what 'attribute' and 'team data' are? use binding.pry to find out!
+        binding.pry
+
+>>>>>>> 11e4336bf115a7e40b6a80e9c32a4441eba9c3dd
         #what is 'data' at each loop through out .each block? when will the following line of code work and when will it break?
         data.each do |data_item|
             binding.pry
